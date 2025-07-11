@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Registered Users</title>
+    <style>
+        body {
+            background-color: #1e1e2f;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            padding: 40px;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00bcd4;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #2a2a3d;
+            box-shadow: 0 0 10px rgba(0, 188, 212, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 20px;
+            text-align: center;
+            border-bottom: 1px solid #444;
+        }
+
+        th {
+            background-color: #00bcd4;
+            color: #121212;
+        }
+
+        tr:hover {
+            background-color: #3a3a50;
+        }
+
+        a.back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #00bcd4;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        a.back-link:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Registered Users</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{{ url_for('admin_panel') }}" class="back-link">← Back to Dashboard</a>
+</body>
+</html>

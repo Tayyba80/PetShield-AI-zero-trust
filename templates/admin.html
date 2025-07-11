@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1e1e2f;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #00bcd4;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    .admin-links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 300px;
+    }
+
+    .admin-links a {
+      display: block;
+      text-decoration: none;
+      background-color: #2a2a3d;
+      color: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 18px;
+      box-shadow: 0 0 5px rgba(0, 188, 212, 0.2);
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .admin-links a:hover {
+      background-color: #00bcd4;
+      color: #121212;
+      transform: scale(1.05);
+    }
+
+    .logout {
+      margin-top: 40px;
+      font-size: 16px;
+      color: #f44336;
+    }
+
+    .logout:hover {
+      color: #ff7961;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+    <div class="admin-links">
+      <a href="{{ url_for('view_users') }}">👤 View All Users</a>
+      <a href="{{ url_for('view_upload_logs') }}">📁 View All Uploads</a>
+      <a href="{{ url_for('view_blocked_ips') }}">🚫 View Blocked IPs</a>
+    </div>
+    <a href="/logout" class="logout">🔒 Logout</a>
+  </div>
+</body>
+</html>

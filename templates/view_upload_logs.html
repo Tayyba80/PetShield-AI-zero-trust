@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Logs</title>
+  <style>
+    body {
+      background-color: #1e1e2f;
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00bcd4;
+      margin-bottom: 30px;
+    }
+
+    .log-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .log-card {
+      background: #2a2a3d;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 188, 212, 0.1);
+      padding: 15px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .log-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 18px rgba(0, 188, 212, 0.2);
+    }
+
+    .log-info p {
+      margin: 6px 0;
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .log-info strong {
+      color: #00bcd4;
+    }
+
+    .log-image {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 10px;
+      border: 1px solid #444;
+    }
+
+    a.back-link {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      color: #00bcd4;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    a.back-link:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <h1>All Upload Logs</h1>
+  <div class="log-container">
+    {% for log in upload_logs %}
+      <div class="log-card">
+        <div class="log-info">
+          <p><strong>Uploaded by:</strong> {{ log.uploaded_by }}</p>
+          <p><strong>File name:</strong> {{ log.filename }}</p>
+          <p><strong>Uploaded at:</strong> {{ log.timestamp.strftime('%Y-%m-%d %H:%M') }}</p>
+        </div>
+        <img class="log-image" src="data:image/jpeg;base64,{{ log.file_data | b64encode }}">
+      </div>
+    {% endfor %}
+  </div>
+
+  <a href="{{ url_for('admin_panel') }}" class="back-link">← Back to Dashboard</a>
+</body>
+</html>

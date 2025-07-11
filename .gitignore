@@ -1,0 +1,45 @@
+# Virtual environment
+myenv/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+
+# Model files (too large for GitHub and usually not needed in repo)
+*.h5
+*.hdf5
+*.pkl
+*.pt
+*.onnx
+*.tflite
+*.joblib
+
+# VSCode / IDE / OS files (optional)
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Instance folder (if it contains runtime/generated data)
+instance/
+
+# Ignore virtual environments
+myenv/
+*.pyd
+*.dll
+*.h5
+*.ckpt
+*.log
+
+# Ignore OS / Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore IDE folders
+.vscode/
+.idea/
+

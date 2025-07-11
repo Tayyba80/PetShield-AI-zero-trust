@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Verify OTP</title>
+  <style>
+    body {
+      background-color: #1e1e2f;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: #2a2a3d;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      width: 350px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #00bcd4;
+      margin-bottom: 25px;
+    }
+
+    input[type="text"],
+    input[name="otp"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: #3a3a4f;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background-color: #00bcd4;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0097a7;
+    }
+
+    .flash-message {
+      margin-top: 15px;
+      color: #f44336;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Verify OTP</h2>
+    <form method="POST">
+      <input type="text" name="otp" placeholder="Enter OTP" required>
+      <button type="submit">Verify OTP</button>
+    </form>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <p class="flash-message">{{ message }}</p>
+    {% endfor %}
+    {% endwith %}
+  </div>
+</body>
+</html>
